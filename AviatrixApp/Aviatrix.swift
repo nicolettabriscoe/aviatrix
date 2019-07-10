@@ -20,6 +20,11 @@ class Aviatrix {
         author = myAuthor
     }
     
+    var distanceTraveled = 0.0
+    var maxFuel = 5000
+    var fuelLevel = 5000.0
+    var milesPerGallon = 0.4
+    
     //this function should tell us if the airplane is running or not
     var running = false
     
@@ -34,6 +39,8 @@ class Aviatrix {
     }
     
     func flyTo(destination : String) {
+        distanceTraveled += Double(distanceTo(target: destination, current: currentLocation))
+        fuelLevel = fuelLevel - distanceTraveled * milesPerGallon
         currentLocation = destination
     }
     //i want to tell every airplane that i create from this class how far places are

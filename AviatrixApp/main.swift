@@ -11,8 +11,8 @@ import Foundation
 func gauges(myPlane : Aviatrix) {
     print("Reading the gauges...")
     print(" ")
-//    print("| Running:  | ✅")
-//    print("| Location:  | \(myPlane.location)")
+    print("| Running:  | ✅")
+    print("| Location:  | \(myPlane.location)")
 //    print("| Distance:  | \(myPlane.distanceTraveled) miles")
 //    print("| Fuel:      | \(myPlane.fuelLevel) gallons")
 //    print("| Max Fuel:  | \(myPlane.maxFuel) gallons")
@@ -20,13 +20,15 @@ func gauges(myPlane : Aviatrix) {
 //    print("| Fuel Bill: | \(myPlane.fuelCost)")
 }
 
+//this function asks where to fly to
 func fly(myPlane : Aviatrix) {
     print("Where would you like to fly to? ")
     print(" ")
+    //calling the aviatrix class and using aviatrix function knownDestinations
     let destinations = myPlane.knownDestinations()
     
     for (index, city) in destinations.enumerated() {
-        let distance = myPlane.distanceTo(target: city)
+        let distance = myPlane.distanceTo(target: city, current:myPlane.currentLocation)
         print("\(index): \(city), \(distance) miles")
     }
     
@@ -41,7 +43,7 @@ func fly(myPlane : Aviatrix) {
         
         if fuelCheck(myPlane: myPlane, destination : desiredLocation) {
             myPlane.flyTo(destination: desiredLocation)
-            print("🛬 You've arrived in _________!")
+            print("🛬 You've arrived in \(myPlane.currentLocation)!")
             gauges(myPlane: myPlane)
         }
     }
@@ -79,7 +81,7 @@ var plane = Aviatrix(myAuthor: "KWK Portland") //identifying what the author is
 print("Welcome to the Aviatrix Flight System by \(plane.author)")
 plane.start()
 
-print("You're currently in _________")
+print("You're currently in \(plane.currentLocation)!")
 
 var command = ""
 

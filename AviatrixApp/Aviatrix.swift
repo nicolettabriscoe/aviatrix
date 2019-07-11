@@ -24,6 +24,7 @@ class Aviatrix {
     var maxFuel = 5000
     var fuelLevel = 5000.0
     var milesPerGallon = 0.4
+    var fuelPrice = 0.0
     
     //this function should tell us if the airplane is running or not
     var running = false

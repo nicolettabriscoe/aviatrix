@@ -14,9 +14,9 @@ func gauges(myPlane : Aviatrix) {
     print("| Running:  | ✅")
     print("| Location:  | \(myPlane.currentLocation)")
     print("| Distance:  | \(myPlane.distanceTraveled) miles")
-//    print("| Fuel:      | \(myPlane.fuelLevel) gallons")
-//    print("| Max Fuel:  | \(myPlane.maxFuel) gallons")
-//    print("| MPG:       | \(myPlane.milesPerGallon)")
+    print("| Fuel:      | \(myPlane.fuelLevel) gallons")
+    print("| Max Fuel:  | \(myPlane.maxFuel) gallons")
+    print("| MPG:       | \(myPlane.milesPerGallon)")
 //    print("| Fuel Bill: | \(myPlane.fuelCost)")
 }
 
@@ -57,7 +57,7 @@ func refuel(myPlane : Aviatrix) {
     let refuelData = myPlane.refuel()
     
     print("Refueling...")
-    print("⛽ Here in _________, jet fuel costs _________")
+    print("⛽ Here in \(plane.currentLocation), jet fuel costs ____")
     print("⛽ You refueled _________ gallons totaling _________")
 }
 
